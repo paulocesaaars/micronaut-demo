@@ -4,13 +4,11 @@ services:
   api:
     image: demo-api
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
     ports:
       - 8080:8080
     environment:
-      - DATABASE_HOST=host.docker.internal
-      - DATABASE_USER=postgres
-      - DATABASE_PASSWORD=paula@123
-      - DATABASE_NAME=demo
-      - DATABASE_PORT=5432
+      - APP_URL=jdbc:postgresql://host.docker.internal:5432/demo
+      - APP_USERNAME=postgres
+      - APP_PASSWORD=paula@123
